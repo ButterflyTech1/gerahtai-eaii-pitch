@@ -46,6 +46,13 @@ body,
   padding: 0 !important;
   margin: 0 !important;
   box-sizing: border-box;
+  position: relative;
+}
+
+.pitch-slide > :deep(.cover),
+.pitch-slide .cover {
+  position: absolute;
+  inset: 0;
 }
 
 /* Safe zone for every scene — do NOT zero padding on children */

@@ -5,6 +5,7 @@
       src="/images/hero.jpg"
       alt=""
       decoding="async"
+      fetchpriority="high"
     />
     <div class="cover__veil" aria-hidden="true" />
     <div class="g-grid cover__grid" aria-hidden="true" />
@@ -38,35 +39,46 @@
       <p class="cover__company">Butterfly Tech / GerahtAI</p>
 
       <div class="cover__actions">
-        <button class="btn-emerald" type="button" @click="openVideo">Watch the Pitch</button>
+        <button class="btn-emerald" type="button" @click="start">Start presentation →</button>
+        <button class="btn-ghost" type="button" @click="openVideo">Watch the Pitch</button>
         <a class="btn-ghost" href="/watch.html">Board video link</a>
         <a class="btn-ghost" href="/downloads/gerahtai-eaii-pitch-deck.pdf" download="gerahtai-eaii-pitch-deck.pdf">
           Download Pitch Deck (PDF)
         </a>
-        <a
-          class="btn-ghost"
-          href="https://gerahtai-frontend.onrender.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open Platform →
-        </a>
       </div>
+    </div>
+
+    <div class="cover__hint" aria-live="polite">
+      <span class="cover__hint-label">Press</span>
+      <kbd class="cover__key" aria-hidden="true">→</kbd>
+      <span class="cover__hint-label">or</span>
+      <kbd class="cover__key cover__key--wide">Space</kbd>
+      <span class="cover__hint-label">to begin</span>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useNav } from '@slidev/client'
+
+const { next } = useNav()
+
 function openVideo() {
   window.__gerahtOpenVideo?.()
+}
+
+function start() {
+  next()
 }
 </script>
 
 <style scoped>
 .cover {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   overflow: hidden;
   background: #0F172A;
 }
@@ -78,6 +90,7 @@ function openVideo() {
   object-fit: cover;
   object-position: center;
   z-index: 0;
+  background: #0F172A;
 }
 .cover__veil {
   position: absolute;
@@ -86,10 +99,10 @@ function openVideo() {
   background:
     linear-gradient(
       105deg,
-      rgba(15, 23, 42, 0.92) 0%,
-      rgba(15, 23, 42, 0.78) 38%,
-      rgba(15, 23, 42, 0.42) 62%,
-      rgba(15, 23, 42, 0.28) 100%
+      rgba(15, 23, 42, 0.94) 0%,
+      rgba(15, 23, 42, 0.82) 38%,
+      rgba(15, 23, 42, 0.45) 62%,
+      rgba(15, 23, 42, 0.3) 100%
     ),
     radial-gradient(ellipse at 18% 85%, rgba(5, 150, 105, 0.22), transparent 55%);
 }
@@ -101,7 +114,7 @@ function openVideo() {
   position: relative;
   z-index: 2;
   height: 100%;
-  padding: 88px 80px 56px;
+  padding: 88px 80px 88px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -186,5 +199,48 @@ function openVideo() {
 .btn-ghost:hover {
   border-color: #059669;
   color: #ECFDF5;
+}
+.cover__hint {
+  position: absolute;
+  right: 80px;
+  bottom: 36px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #CBD5E1;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 650;
+}
+.cover__hint-label {
+  opacity: 0.85;
+}
+.cover__key {
+  display: inline-grid;
+  place-items: center;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(5, 150, 105, 0.55);
+  background: rgba(5, 150, 105, 0.16);
+  color: #ECFDF5;
+  font-size: 20px;
+  font-weight: 700;
+  animation: nudge 1.6s ease-in-out infinite;
+}
+.cover__key--wide {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); box-shadow: 0 0 0 rgba(5, 150, 105, 0); }
+  50% { transform: translateX(6px); box-shadow: 0 0 18px rgba(5, 150, 105, 0.35); }
+}
+@media (max-width: 900px) {
+  .cover__inner { padding: 76px 44px 96px; }
+  .cover__hint { left: 44px; right: 44px; bottom: 24px; justify-content: flex-start; flex-wrap: wrap; }
 }
 </style>

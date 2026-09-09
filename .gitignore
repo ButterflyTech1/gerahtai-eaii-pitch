@@ -16,3 +16,4 @@ public/video/*.webm
 *.mp4
 *.MOV
 *.mov
+.vercel

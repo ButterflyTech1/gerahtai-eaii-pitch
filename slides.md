@@ -22,6 +22,7 @@ Proposal scenes + dedicated Team section.
 ---
 layout: none
 class: pitch-slide
+clicks: 0
 ---
 
 <SceneCover />
