@@ -20,8 +20,8 @@
       <div class="ask__grid">
         <div v-click="1" class="ask__team g-panel">
           <div class="g-kicker">Core team</div>
-          <p><strong>Bisrat Seyoum</strong> — CEO / strategy · software engineer</p>
-          <p><strong>Tomas Asefa</strong> — software engineering, development, research</p>
+          <p><strong>Bisrat Seyoum</strong> — Software engineer · CEO / strategy</p>
+          <p><strong>Tomas Asefa</strong> — Software engineer · development & research</p>
           <p class="ask__advisors">
             Advisors needed: soil science, agronomy, lab QA, waste processing
           </p>

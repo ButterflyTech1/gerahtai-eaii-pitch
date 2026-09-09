@@ -14,17 +14,16 @@
           <div class="team__avatar">BS</div>
           <div>
             <div class="team__name">Bisrat Seyoum</div>
+            <div class="team__title">Software engineer</div>
             <div class="team__role">CEO / strategy</div>
-            <div class="team__tags">
-              <span class="team__tag">Software engineer</span>
-            </div>
           </div>
         </div>
         <div v-click="1" class="team__card g-panel-strong">
           <div class="team__avatar">TA</div>
           <div>
             <div class="team__name">Tomas Asefa</div>
-            <div class="team__role">Software engineering, development, research</div>
+            <div class="team__title">Software engineer</div>
+            <div class="team__role">Development & research</div>
           </div>
         </div>
       </div>
@@ -88,26 +87,15 @@ const advisors = ['Soil science', 'Agronomy', 'Lab QA', 'Waste processing']
   flex-shrink: 0;
 }
 .team__name { font-size: 22px; font-weight: 720; letter-spacing: -0.02em; }
-.team__role { margin-top: 6px; font-size: 13px; color: #94A3B8; line-height: 1.35; }
-.team__tags {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.team__tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(5, 150, 105, 0.45);
-  background: rgba(5, 150, 105, 0.14);
-  color: #ECFDF5;
-  font-size: 11px;
+.team__title {
+  margin-top: 6px;
+  font-size: 12px;
   font-weight: 650;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: #34d399;
 }
+.team__role { margin-top: 6px; font-size: 13px; color: #94A3B8; line-height: 1.35; }
 .team__advisors { width: min(760px, 100%); }
 .team__grid {
   display: grid;
