@@ -1,4 +1,6 @@
 ---
+# GerahtAI EAII interactive pitch
+# 01 Cover · 02 Problem · 03 Solution · 04 Traction · 05 Business · 06 Competition · 07 Team · 08 Ask
 theme: default
 title: GerahtAI — EAII Startup Support Program
 colorSchema: dark
@@ -11,15 +13,6 @@ download: /downloads/gerahtai-eaii-pitch-deck.pdf
 exportFilename: gerahtai-eaii-pitch-deck
 favicon: /logo/gerahtai-logo.png
 transition: fade
-clicks: 0
----
-
-<!--
-Proposal scenes + dedicated Team section.
-01 Cover · 02 Problem · 03 Solution · 04 Traction · 05 Business · 06 Competition · 07 Team · 08 Ask
--->
-
----
 layout: none
 class: pitch-slide
 clicks: 0
