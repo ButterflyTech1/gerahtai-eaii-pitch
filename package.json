@@ -1,0 +1,19 @@
+{
+  "name": "gerahtai-eaii-pitch",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides.md --port 3030",
+    "build": "slidev build slides.md",
+    "build:pdf": "slidev build slides.md --download",
+    "export": "slidev export slides.md --output public/downloads/gerahtai-eaii-pitch-deck.pdf",
+    "preview": "slidev slides.md --port 3030"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.19.1"
+  },
+  "dependencies": {
+    "@slidev/theme-default": "^0.25.0"
+  }
+}

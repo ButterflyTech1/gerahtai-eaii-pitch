@@ -1,0 +1,265 @@
+:root {
+  --g-bg: #0F172A;
+  --g-bg-elevated: #132033;
+  --g-emerald: #059669;
+  --g-emerald-dark: #047857;
+  --g-emerald-soft: #ECFDF5;
+  --g-ink: #F8FAFC;
+  --g-muted: #94A3B8;
+  --g-dim: #64748B;
+  --g-line: rgba(148, 163, 184, 0.16);
+  --g-panel: rgba(15, 23, 42, 0.55);
+  --g-panel-strong: rgba(5, 150, 105, 0.12);
+  --g-ease: cubic-bezier(0.22, 0.75, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+
+html,
+body,
+#app,
+#slide-content,
+.slidev-page,
+.slidev-layout {
+  width: 100%;
+  height: 100%;
+}
+
+.slidev-layout {
+  background:
+    radial-gradient(ellipse 55% 45% at 85% 8%, rgba(5, 150, 105, 0.14), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 8% 90%, rgba(4, 120, 87, 0.1), transparent 50%),
+    var(--g-bg) !important;
+  color: var(--g-ink);
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.pitch-slide,
+.slidev-layout.pitch-slide {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Safe zone for every scene — do NOT zero padding on children */
+.g-frame {
+  width: 100%;
+  height: 100%;
+  padding: 88px 80px 56px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3,
+.slidev-layout p { margin: 0; }
+
+.slidev-layout strong { color: var(--g-emerald); }
+
+.g-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 88%);
+  pointer-events: none;
+}
+
+.g-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.g-kicker {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--g-dim);
+  font-weight: 600;
+}
+
+.g-page {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--g-muted);
+  text-transform: uppercase;
+}
+
+.g-title {
+  font-size: 38px;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  max-width: 780px;
+}
+
+.g-sub {
+  margin-top: 14px;
+  max-width: 640px;
+  color: var(--g-muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.g-accent { color: var(--g-emerald); }
+
+.g-panel {
+  background: var(--g-panel);
+  border: 1px solid var(--g-line);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.g-panel-strong {
+  background: var(--g-panel-strong);
+  border: 1px solid rgba(5, 150, 105, 0.35);
+  border-radius: 14px;
+}
+
+.g-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--g-line);
+  background: rgba(15, 23, 42, 0.45);
+  color: #CBD5E1;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.g-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--g-emerald);
+  box-shadow: 0 0 10px rgba(5, 150, 105, 0.55);
+}
+
+.g-footer {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--g-dim);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.g-node-card {
+  padding: 14px 16px;
+  min-width: 120px;
+  text-align: center;
+  border: 1px solid var(--g-line);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.g-node-card .label {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #E2E8F0;
+}
+
+.g-node-card .hint {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--g-dim);
+  line-height: 1.3;
+}
+
+.g-node-card.is-center {
+  border-color: rgba(5, 150, 105, 0.55);
+  background: rgba(5, 150, 105, 0.16);
+  box-shadow: 0 0 40px rgba(5, 150, 105, 0.12);
+}
+
+.g-node-card.is-center .label { color: var(--g-emerald-soft); }
+
+.g-stat-num {
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  color: var(--g-emerald);
+  font-variant-numeric: tabular-nums;
+}
+
+.g-stat-label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #CBD5E1;
+  line-height: 1.3;
+}
+
+.slidev-vclick-target {
+  transition:
+    opacity 0.45s var(--g-ease),
+    transform 0.55s var(--g-ease),
+    filter 0.45s ease,
+    border-color 0.45s ease,
+    background 0.45s ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  filter: blur(1.5px);
+  pointer-events: none;
+}
+
+@keyframes g-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes g-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes g-pulse-soft {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes g-particle {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+.g-line-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: g-draw 0.9s var(--g-ease) forwards;
+}
+
+@media (max-width: 900px) {
+  .g-frame { padding: 76px 44px 44px; }
+  .g-title { font-size: 30px; }
+  .g-footer { left: 44px; right: 44px; bottom: 26px; }
+}

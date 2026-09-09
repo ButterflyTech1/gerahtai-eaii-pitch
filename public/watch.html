@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GerahtAI Pitch Video — EAII Round 2</title>
+  <meta name="description" content="GerahtAI pitch video for the EAII Startup Support Program — Round 2." />
+  <link rel="icon" href="/logo/gerahtai-logo.png" />
+  <style>
+    :root {
+      --bg: #0F172A;
+      --emerald: #059669;
+      --soft: #ECFDF5;
+      --muted: #94A3B8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 50% 40% at 80% 0%, rgba(5, 150, 105, 0.18), transparent 55%),
+        var(--bg);
+      color: #F8FAFC;
+      font-family: "DM Sans", system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 20px 48px;
+    }
+    header {
+      width: min(960px, 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+    }
+    .brand img { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px; }
+    a.btn, button.btn {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: transparent;
+      color: var(--soft);
+    }
+    .btn-emerald { background: var(--emerald); color: white; border: none; }
+    main { width: min(960px, 100%); }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+    .sub { margin: 0 0 20px; color: var(--muted); line-height: 1.45; max-width: 40rem; }
+    .player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 14px;
+      border: 1px solid rgba(5, 150, 105, 0.35);
+      overflow: hidden;
+      position: relative;
+    }
+    .player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .missing {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .share {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(5, 150, 105, 0.28);
+      background: rgba(5, 150, 105, 0.08);
+    }
+    .share label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--emerald);
+      font-weight: 650;
+      margin-bottom: 8px;
+    }
+    .share-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .share input {
+      flex: 1;
+      min-width: 220px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      color: #E2E8F0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+    footer {
+      width: min(960px, 100%);
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    footer a { color: #34d399; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">
+      <img src="/brand/gerahtai-mark.png" alt="GerahtAI" />
+      GERAHTAI
+    </a>
+    <div class="links">
+      <a class="btn" href="/">Open Pitch Deck</a>
+      <a class="btn" href="/downloads/gerahtai-eaii-pitch-deck.pdf" download>Download PDF</a>
+      <a class="btn btn-emerald" id="yt-link" href="#" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+    </div>
+  </header>
+
+  <main>
+    <h1>GerahtAI Pitch Video</h1>
+    <p class="sub">
+      EAII Startup Support Program — Round 2 · Butterfly Tech / GerahtAI.
+      Share this page with the competition board for the unlisted pitch video.
+    </p>
+
+    <div class="player" id="player">
+      <div class="missing" id="missing">
+        Add your YouTube video ID to <code>public/watch.html</code>
+        (set <code>YOUTUBE_VIDEO_ID</code> below) or pass
+        <code>?v=YOUR_ID</code> in the URL.
+      </div>
+    </div>
+
+    <div class="share">
+      <label>Board share link</label>
+      <div class="share-row">
+        <input id="share-url" readonly value="" />
+        <button class="btn btn-emerald" type="button" id="copy-btn">Copy link</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Prefer the interactive deck? <a href="/">Return to the GerahtAI pitch experience</a>.
+  </footer>
+
+  <script>
+    // Paste your unlisted YouTube video ID here (or full watch URL):
+    const YOUTUBE_VIDEO_ID = 'g2I5kE0PS3I'
+
+    function resolveId() {
+      const params = new URLSearchParams(window.location.search)
+      const fromQuery = params.get('v')
+      if (fromQuery) return fromQuery.trim()
+      const raw = YOUTUBE_VIDEO_ID
+      if (!raw || raw.startsWith('REPLACE_WITH_')) return ''
+      const match = raw.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{6,})/)
+      if (match?.[1]) return match[1]
+      if (/^[A-Za-z0-9_-]{6,}$/.test(raw.trim())) return raw.trim()
+      return ''
+    }
+
+    const id = resolveId()
+    const player = document.getElementById('player')
+    const missing = document.getElementById('missing')
+    const ytLink = document.getElementById('yt-link')
+    const input = document.getElementById('share-url')
+    const btn = document.getElementById('copy-btn')
+
+    input.value = window.location.href.split('#')[0]
+
+    if (id) {
+      missing.remove()
+      const iframe = document.createElement('iframe')
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
+      iframe.title = 'GerahtAI pitch video'
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+      iframe.allowFullscreen = true
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin'
+      player.appendChild(iframe)
+      ytLink.href = `https://www.youtube.com/watch?v=${id}`
+    } else {
+      ytLink.style.display = 'none'
+    }
+
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(input.value)
+        btn.textContent = 'Copied'
+        setTimeout(() => { btn.textContent = 'Copy link' }, 1600)
+      } catch (_) {
+        input.select()
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+node_modules
+public/video/*.mp4
+public/video/*.MOV
+public/video/*.mov
+public/video/*.webm
+*.mp4
+*.MOV
+*.mov
