@@ -59,8 +59,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-bottom: 28px;
+  gap: 14px;
+  min-height: 0;
 }
 .sol__steps {
   margin-top: 8px;
