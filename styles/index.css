@@ -55,14 +55,17 @@ body,
   inset: 0;
 }
 
-/* Safe zone for every scene — do NOT zero padding on children */
+/* Safe zone for every scene — flex column so footer never collides with CTAs */
 .g-frame {
   width: 100%;
   height: 100%;
-  padding: 88px 80px 56px;
+  padding: 78px 72px 22px;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .slidev-layout h1,
@@ -107,19 +110,19 @@ body,
 }
 
 .g-title {
-  font-size: 38px;
-  line-height: 1.05;
+  font-size: 34px;
+  line-height: 1.08;
   letter-spacing: -0.035em;
   font-weight: 700;
   max-width: 780px;
 }
 
 .g-sub {
-  margin-top: 14px;
+  margin-top: 10px;
   max-width: 640px;
   color: var(--g-muted);
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .g-accent { color: var(--g-emerald); }
@@ -159,18 +162,24 @@ body,
 }
 
 .g-footer {
-  position: absolute;
-  left: 80px;
-  right: 80px;
-  bottom: 32px;
+  position: relative;
+  z-index: 3;
+  flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 16px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
   color: var(--g-dim);
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  z-index: 3;
+  line-height: 1.35;
+}
+.g-footer span:last-child {
+  text-align: right;
+  max-width: 62%;
 }
 
 .g-node-card {
@@ -266,7 +275,7 @@ body,
 }
 
 @media (max-width: 900px) {
-  .g-frame { padding: 76px 44px 44px; }
-  .g-title { font-size: 30px; }
-  .g-footer { left: 44px; right: 44px; bottom: 26px; }
+  .g-frame { padding: 72px 40px 18px; }
+  .g-title { font-size: 28px; }
+  .g-footer span:last-child { max-width: 55%; }
 }

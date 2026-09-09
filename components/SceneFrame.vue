@@ -32,13 +32,19 @@ defineProps({
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
 }
 .g-frame__body {
   position: relative;
   z-index: 2;
-  height: calc(100% - 72px);
-  padding-top: 16px;
-  padding-bottom: 8px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
+}
+.g-frame__body > :deep(*) {
+  min-height: 0;
 }
 </style>

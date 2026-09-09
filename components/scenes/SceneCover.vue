@@ -10,6 +10,16 @@
     <div class="cover__veil" aria-hidden="true" />
     <div class="g-grid cover__grid" aria-hidden="true" />
 
+    <div class="cover__banner" aria-live="polite">
+      <span class="cover__banner-label">Interactive slide deck</span>
+      <span class="cover__banner-sep" aria-hidden="true">·</span>
+      <span>Press</span>
+      <kbd class="cover__key cover__key--sm" aria-hidden="true">→</kbd>
+      <span>or</span>
+      <kbd class="cover__key cover__key--sm cover__key--wide">Space</kbd>
+      <span>to start the presentation</span>
+    </div>
+
     <div class="cover__inner">
       <GerahtAILogo :size="52" />
 
@@ -48,12 +58,9 @@
       </div>
     </div>
 
-    <div class="cover__hint" aria-live="polite">
-      <span class="cover__hint-label">Press</span>
-      <kbd class="cover__key" aria-hidden="true">→</kbd>
-      <span class="cover__hint-label">or</span>
-      <kbd class="cover__key cover__key--wide">Space</kbd>
-      <span class="cover__hint-label">to begin</span>
+    <div class="cover__hint" aria-hidden="true">
+      <kbd class="cover__key">→</kbd>
+      <span class="cover__hint-label">Next slide</span>
     </div>
   </div>
 </template>
@@ -114,12 +121,41 @@ function start() {
   position: relative;
   z-index: 2;
   height: 100%;
-  padding: 88px 80px 88px;
+  padding: 108px 80px 88px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 640px;
   box-sizing: border-box;
+}
+.cover__banner {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: min(920px, calc(100% - 48px));
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(5, 150, 105, 0.45);
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(12px);
+  color: #E2E8F0;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cover__banner-label {
+  color: #34d399;
+}
+.cover__banner-sep {
+  opacity: 0.45;
 }
 .cover__brand {
   margin: 18px 0 0;
@@ -235,12 +271,19 @@ function start() {
   font-size: 11px;
   letter-spacing: 0.12em;
 }
+.cover__key--sm {
+  min-width: 34px;
+  height: 34px;
+  font-size: 16px;
+  padding: 0 10px;
+}
 @keyframes nudge {
   0%, 100% { transform: translateX(0); box-shadow: 0 0 0 rgba(5, 150, 105, 0); }
   50% { transform: translateX(6px); box-shadow: 0 0 18px rgba(5, 150, 105, 0.35); }
 }
 @media (max-width: 900px) {
-  .cover__inner { padding: 76px 44px 96px; }
+  .cover__inner { padding: 120px 44px 96px; }
+  .cover__banner { top: 64px; border-radius: 16px; }
   .cover__hint { left: 44px; right: 44px; bottom: 24px; justify-content: flex-start; flex-wrap: wrap; }
 }
 </style>
