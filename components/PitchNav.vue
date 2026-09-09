@@ -7,13 +7,14 @@ const emit = defineEmits<{ openVideo: [] }>()
 const { go, currentPage } = useNav()
 
 const sections = [
-  { id: 1, label: 'Problem' },
-  { id: 2, label: 'Solution' },
-  { id: 3, label: 'Technology' },
-  { id: 4, label: 'Business' },
-  { id: 5, label: 'Differentiation' },
-  { id: 6, label: 'Team' },
-  { id: 7, label: 'The Ask' },
+  { id: 1, label: 'Cover' },
+  { id: 2, label: 'Problem' },
+  { id: 3, label: 'Solution' },
+  { id: 4, label: 'Technology' },
+  { id: 5, label: 'Business' },
+  { id: 6, label: 'Differentiation' },
+  { id: 7, label: 'Team' },
+  { id: 8, label: 'The Ask' },
 ]
 
 const active = computed(() => currentPage.value)

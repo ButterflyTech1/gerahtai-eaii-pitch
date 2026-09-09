@@ -16,13 +16,21 @@ clicks: 0
 
 <!--
 Proposal scenes + dedicated Team section.
-01 Problem · 02 Solution · 03 Traction · 04 Business · 05 Competition · 06 Team · 07 Ask
+01 Cover · 02 Problem · 03 Solution · 04 Traction · 05 Business · 06 Competition · 07 Team · 08 Ask
 -->
 
 ---
 layout: none
 class: pitch-slide
-clicks: 6
+clicks: 0
+---
+
+<SceneCover />
+
+---
+layout: none
+class: pitch-slide
+clicks: 4
 ---
 
 <SceneProblem />

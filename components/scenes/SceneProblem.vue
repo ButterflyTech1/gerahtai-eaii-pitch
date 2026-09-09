@@ -6,31 +6,32 @@
     footer-right="Sources: World Bank indicators via TheGlobalEconomy; World Bank IEG; Ethiopia News Agency; JAWMA 2024 systematic review."
   >
     <div class="prob">
-      <div v-click="1" class="prob__soil" />
-      <div v-click="1" class="prob__veil" />
+      <!-- Always visible on enter — v-click hid the whole scene at click 0 -->
+      <div class="prob__soil" />
+      <div class="prob__veil" />
 
       <div class="prob__left">
-        <div v-click="1" class="g-pill" style="margin-bottom: 14px">
+        <div class="g-pill" style="margin-bottom: 14px">
           <span class="g-dot" /> ETHIOPIA · AGRICULTURE
         </div>
 
-        <div v-click="2" class="g-title">
+        <div class="g-title">
           Soil degradation is becoming an
           <span class="g-accent">intelligence problem</span>,
           not only an input problem.
         </div>
 
-        <div v-click="2" class="g-sub">
+        <div class="g-sub">
           Farmers, institutions, and public programs need soil-specific evidence
           before they can restore productivity responsibly.
         </div>
 
-        <div v-click="5" class="g-sub prob__opp">
+        <div v-click="3" class="g-sub prob__opp">
           The opportunity is to reduce blind input use by creating trusted local soil intelligence
           — then linking diagnosis to safe, soil-specific restoration actions.
         </div>
 
-        <div v-click="5" class="prob__gap">
+        <div v-click="3" class="prob__gap">
           <div class="g-kicker">Unserved gap</div>
           <p>
             Soil testing, fertilizer advice, AI tools, compost/biochar, and field programs usually operate
@@ -38,7 +39,7 @@
           </p>
         </div>
 
-        <div v-click="6" class="prob__finale g-panel-strong">
+        <div v-click="4" class="prob__finale g-panel-strong">
           <div class="g-kicker">Local soil intelligence</div>
           <div class="prob__finale-title">
             + Validation-Aware System
@@ -48,27 +49,27 @@
 
       <div class="prob__right">
         <div class="prob__stats">
-          <div v-click="3" class="g-panel prob__stat">
+          <div v-click="1" class="g-panel prob__stat">
             <div class="g-stat-num">~60%</div>
             <div class="g-stat-label">of workforce in agriculture</div>
           </div>
-          <div v-click="3" class="g-panel prob__stat">
+          <div v-click="1" class="g-panel prob__stat">
             <div class="g-stat-num">~33%</div>
             <div class="g-stat-label">of GDP from agriculture</div>
           </div>
-          <div v-click="4" class="g-panel prob__stat">
+          <div v-click="2" class="g-panel prob__stat">
             <div class="g-stat-num">&gt;85%</div>
             <div class="g-stat-label">of land reported degraded</div>
           </div>
-          <div v-click="4" class="g-panel prob__stat">
+          <div v-click="2" class="g-panel prob__stat">
             <div class="g-stat-num">15.5M</div>
             <div class="g-stat-label">quintals fertilizer imported</div>
           </div>
         </div>
 
-        <div v-click="5" class="prob__eco">
+        <div v-click="3" class="prob__eco">
           <svg class="prob__lines" viewBox="0 0 520 220" aria-hidden="true">
-            <g v-click="6">
+            <g v-click="4">
               <line
                 v-for="(line, i) in clippedLines"
                 :key="i"
@@ -92,7 +93,7 @@
             <div class="label">{{ node.label }}</div>
           </div>
 
-          <div v-click="6" class="g-node-card is-center prob__hub">
+          <div v-click="4" class="g-node-card is-center prob__hub">
             <GerahtAILogo :size="22" />
             <div class="label" style="margin-top: 8px">GerahtAI</div>
           </div>
