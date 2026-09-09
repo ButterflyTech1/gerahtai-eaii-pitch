@@ -49,12 +49,6 @@ body,
   position: relative;
 }
 
-.pitch-slide > :deep(.cover),
-.pitch-slide .cover {
-  position: absolute;
-  inset: 0;
-}
-
 /* Safe zone for every scene — do NOT zero padding on children */
 .g-frame {
   width: 100%;
